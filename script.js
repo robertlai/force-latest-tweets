@@ -1,9 +1,15 @@
-var timeElapsed = 0;
+timeElapsed = 0;
 
 function clickMenuItem() {
     var menuItem = document.querySelector('[role="menu"] [tabindex="0"]');
+    var clockHands = document.querySelector('[role="menu"] path[fill="#005FD1"]');
     if (menuItem) {
-        menuItem.click();
+        if (clockHands) {
+            var toggleButton = document.querySelector('[data-testid="primaryColumn"] [role="button"]');
+            toggleButton.click();
+        } else {
+            menuItem.click();
+        }
     } else {
         setTimeout(clickMenuItem, 10);
     }
@@ -20,4 +26,7 @@ function clickToggleButton() {
     }
 }
 
-clickToggleButton();
+document.body.onload = () => {
+    timeElapsed = 0;
+    clickToggleButton();
+};
