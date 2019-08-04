@@ -10,7 +10,7 @@ function clickMenuItem() {
 }
 
 function clickToggleButton() {
-    var toggleButton = document.querySelector('[aria-label="Top Tweets on"]');
+    var toggleButton = document.querySelector('[data-testid="primaryColumn"] [role="button"]');
     if (toggleButton) {
         toggleButton.click();
         clickMenuItem();
